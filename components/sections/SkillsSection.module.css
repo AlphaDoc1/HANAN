@@ -1,0 +1,183 @@
+/* Creative Arsenal - App Grid Layout */
+
+.scrollContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-bottom: 4rem;
+}
+
+.trackWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.categoryLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-sm);
+}
+
+.marqueeContainer {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.marqueeTrack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* App Icon Style */
+.skillSticker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100px;
+    transition: var(--transition-bounce);
+    cursor: default;
+}
+
+.iconBox {
+    width: 80px;
+    height: 80px;
+    background: var(--surface);
+    border-radius: 22px;
+    /* Superellipse-ish */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+}
+
+.iconBox::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+    opacity: 0.5;
+}
+
+.skillName {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-secondary);
+    line-height: 1.2;
+}
+
+/* Hover Effects */
+.skillSticker:hover {
+    transform: translateY(-5px);
+}
+
+.skillSticker:hover .iconBox {
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+.skillSticker:hover .skillName {
+    color: var(--foreground);
+}
+
+/* Color Themes based on Track (using :nth-child on trackWrapper) */
+
+/* Track 1: Marketing (Lime) */
+.trackWrapper:nth-child(1) .skillSticker:hover .iconBox {
+    background: var(--lime);
+    color: var(--foreground);
+    box-shadow: var(--shadow-color-lime);
+}
+
+/* Track 2: Content (Electric) */
+.trackWrapper:nth-child(2) .skillSticker:hover .iconBox {
+    background: var(--electric);
+    color: white;
+    box-shadow: var(--shadow-color-electric);
+}
+
+/* Track 3: Strategy (Coral) */
+.trackWrapper:nth-child(3) .skillSticker:hover .iconBox {
+    background: var(--coral);
+    color: white;
+    box-shadow: var(--shadow-color-coral);
+}
+
+/* Track 4: Culture (Purple) */
+.trackWrapper:nth-child(4) .skillSticker:hover .iconBox {
+    background: var(--purple);
+    color: white;
+    box-shadow: var(--shadow-color-purple);
+}
+
+/* Badge */
+.toolkitBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--foreground);
+    color: var(--background);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-md);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .marqueeTrack {
+        gap: 1rem;
+    }
+
+    .skillSticker {
+        width: 80px;
+    }
+
+    .iconBox {
+        width: 64px;
+        height: 64px;
+        font-size: 1.5rem;
+        border-radius: 18px;
+    }
+}

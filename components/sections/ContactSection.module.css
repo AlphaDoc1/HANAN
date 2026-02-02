@@ -1,0 +1,316 @@
+/* Contact Section - Chat Interface */
+.wrapper {
+    padding: 2rem 0 var(--section-spacing) 0;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.contactBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* Contact Profile Card */
+.contactCard {
+    background: var(--surface);
+    border-radius: 32px;
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.contactCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--gradient-rainbow);
+}
+
+.profileHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    background: var(--surface-alt);
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid var(--surface);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.statusIndicator {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--lime);
+    border: 3px solid var(--surface);
+    border-radius: 50%;
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(132, 204, 22, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(132, 204, 22, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(132, 204, 22, 0);
+    }
+}
+
+.profileName {
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    font-family: var(--font-display);
+}
+
+.profileRole {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.contactLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contactLink {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--surface-alt);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    transition: var(--transition-bounce);
+    border: 1px solid transparent;
+}
+
+.contactLink:hover {
+    background: var(--foreground);
+    color: var(--background);
+    transform: translateY(-2px);
+    border-color: var(--foreground);
+}
+
+.iconWrapper {
+    font-size: 1.25rem;
+}
+
+/* Chat Form Interface */
+.chatInterface {
+    background: var(--surface);
+    border-radius: 32px;
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.chatInterface::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 40px;
+    width: 20px;
+    height: 20px;
+    background: var(--surface);
+    transform: rotate(45deg);
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    z-index: 0;
+}
+
+.chatHeader {
+    margin-bottom: 0.5rem;
+}
+
+.chatTitle {
+    font-size: 1.25rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.chatSubtitle {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: var(--surface-alt);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: var(--transition);
+    resize: none;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    background: var(--surface);
+    border-color: var(--lime);
+    box-shadow: 0 0 0 4px rgba(132, 204, 22, 0.1);
+}
+
+.submitButton {
+    background: var(--foreground);
+    color: var(--background);
+    border: none;
+    padding: 1.25rem;
+    border-radius: 16px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.submitButton:hover:not(:disabled) {
+    background: var(--lime);
+    color: var(--foreground);
+    transform: scale(1.02);
+}
+
+.submitButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.statusMessage {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+}
+
+.success {
+    background: rgba(132, 204, 22, 0.1);
+    color: var(--lime-dark);
+}
+
+.error {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--coral-dark);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contactGrid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .contactCard {
+        flex-direction: row;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .profileHeader {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .contactCard {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profileHeader {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .chatInterface {
+        padding: 1.5rem;
+    }
+}

@@ -1,0 +1,431 @@
+/* Editorial Campaign Stream - Clean, Bold, Responsive */
+
+.wrapper {
+    padding: var(--section-spacing) 0;
+    background: var(--background);
+    overflow: hidden;
+    /* Prevent horizontal scroll from decorative elements */
+    position: relative;
+}
+
+/* Section Header */
+.sectionHeader {
+    margin-bottom: var(--section-spacing-sm);
+    max-width: 1000px;
+    position: relative;
+    z-index: 2;
+}
+
+.subLabel {
+    display: inline-block;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--electric);
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(14, 165, 233, 0.1);
+    border-radius: 100px;
+}
+
+.title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--foreground);
+    margin-bottom: 1.5rem;
+}
+
+.titleSpan {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.titleSpan::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: -5px;
+    right: -5px;
+    height: 15px;
+    background: var(--electric-light);
+    opacity: 0.3;
+    z-index: -1;
+    transform: rotate(-1deg);
+}
+
+/* Projects Stream Container */
+.streamContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-spacing-sm);
+}
+
+/* Individual Project Block */
+.projectBlock {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    position: relative;
+    /* Added card styling for border request */
+    border: 2px solid transparent;
+    /* Colored via inline style */
+    background: var(--surface);
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectBlock:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+@media (min-width: 900px) {
+    .projectBlock {
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: center;
+        gap: clamp(3rem, 4vw, 5rem);
+        min-height: auto;
+        /* let content define height with padding */
+        padding: 4rem;
+        /* More breathing room on desktop */
+    }
+
+    /* Alternating Layout */
+    .projectBlock:nth-child(even) {
+        grid-template-columns: 1.1fr 0.9fr;
+        /* Image | Text */
+    }
+
+    .projectBlock:nth-child(even) .contentSide {
+        order: 2;
+    }
+
+    .projectBlock:nth-child(even) .imageSide {
+        order: 1;
+    }
+}
+
+/* Content Side */
+.contentSide {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.projectIndex {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--coral);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+    opacity: 1;
+    user-select: none;
+    display: block;
+}
+
+.projectTitle {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.projectDesc {
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.tagsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.techTag {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Metrics Grid - Compact & Punchy */
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2x2 grid is safer */
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    width: fit-content;
+}
+
+.metricItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.metricValue {
+    font-size: 1.75rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    color: var(--foreground);
+}
+
+.metricLabel {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* Action Area */
+.actionArea {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.openBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--foreground);
+    color: var(--background);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow-md);
+}
+
+.openBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Image Side */
+.imageSide {
+    position: relative;
+    /* Add some jaunty angle */
+}
+
+.visualContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    /* Classic editorial ratio */
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    transition: transform 0.4s ease;
+    background: var(--surface-alt);
+}
+
+.projectBlock:hover .visualContainer {
+    transform: scale(1.02);
+}
+
+/* Decorative backdrop blob behind image */
+.imageSide::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 32px;
+    z-index: -1;
+    background: var(--surface-alt);
+    /* Default fallback */
+    transform: rotate(2deg);
+    opacity: 0.5;
+    transition: transform 0.4s ease;
+}
+
+.projectBlock:hover .imageSide::before {
+    transform: rotate(4deg) scale(1.02);
+}
+
+.projectBlock:nth-child(even) .imageSide::before {
+    transform: rotate(-2deg);
+}
+
+.projectBlock:nth-child(even):hover .imageSide::before {
+    transform: rotate(-4deg) scale(1.02);
+}
+
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.projectBlock:hover .projectImage {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 40%);
+    opacity: 0.6;
+}
+
+/* Modal Styling - Clean & Standard */
+.modalBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modalWindow {
+    background: var(--surface);
+    width: 100%;
+    max-width: 900px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-xl);
+    /* Standard shadow-xl from globals? Using fallback syntax works too */
+    position: relative;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    color: var(--foreground);
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+.closeBtn:hover {
+    transform: scale(1.1);
+    background: var(--foreground);
+    color: var(--background);
+}
+
+.modalImageContainer {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.modalImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modalContent {
+    padding: 3rem;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .projectBlock {
+        gap: 2rem;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .projectBlock:last-child {
+        border-bottom: none;
+    }
+
+    .visualContainer {
+        aspect-ratio: 16/9;
+    }
+
+    .metricsGrid {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .metricValue {
+        font-size: 1.5rem;
+    }
+
+    /* Reset ordering */
+    .projectBlock,
+    .projectBlock:nth-child(even) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contentSide,
+    .imageSide {
+        order: unset !important;
+    }
+
+    .contentSide {
+        display: flex;
+        flex-direction: column;
+        /* Ensure proper stacking on mobile */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

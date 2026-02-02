@@ -1,0 +1,204 @@
+/* Education Section - Access Cards */
+.wrapper {
+    padding: 2rem 0 2rem 0;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.academicBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.educationGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: clamp(2rem, 5vw, 4rem);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The Access Card */
+.educationCard {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 0;
+    position: relative;
+    border: 1px solid var(--border);
+    transition: var(--transition-bounce);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Lanyard Slot (Visual Detail) */
+.cardSlot {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 24px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    z-index: 10;
+}
+
+.cardSlot::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+}
+
+/* Card Strip (Top Decoration) */
+.cardStrip {
+    height: 8px;
+    width: 100%;
+    background: var(--gradient-lime);
+}
+
+.educationCard:nth-child(2) .cardStrip {
+    background: var(--gradient-electric);
+}
+
+.educationCard:nth-child(3) .cardStrip {
+    background: var(--gradient-coral);
+}
+
+.cardContent {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover Effect - 3D Lift */
+.educationCard:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+/* Institution Header */
+.institutionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--border);
+}
+
+.institutionLogo {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.logoImage {
+    object-fit: contain;
+}
+
+.institutionName {
+    font-size: 1.125rem;
+    font-weight: 800;
+    line-height: 1.2;
+    font-family: var(--font-display);
+}
+
+/* Degree Info */
+.degreeInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.degree {
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--foreground);
+    font-family: var(--font-display);
+}
+
+.field {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* Meta Data (Access Codes) */
+.metaGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    background: var(--surface-alt);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.metaItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.metaLabel {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.metaValue {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--text-secondary);
+}
+
+/* Description */
+.description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .educationGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .cardContent {
+        padding: 2rem;
+    }
+}
