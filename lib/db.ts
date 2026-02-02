@@ -248,7 +248,7 @@ export async function addCertification(cert: any) {
 export async function updateCertification(id: string, cert: any) {
     const { data, error } = await supabase
         .from('certifications')
-        .update(cert)
+        .update(cert as any)
         .eq('id', id)
         .select()
         .single();
