@@ -29,7 +29,7 @@ export async function updateProfile(profile: Partial<Profile>): Promise<{ error:
     try {
         const { error } = await supabase
             .from('profile')
-            .update(profile)
+            .update(profile as any)
             .eq('id', profile.id!);
 
         if (error) throw error;
