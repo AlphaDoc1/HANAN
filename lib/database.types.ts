@@ -311,6 +311,47 @@ export interface Database {
                     updated_at?: string
                 }
             }
+            certifications: {
+                Row: {
+                    id: string
+                    name: string
+                    institution: string
+                    date: string | null
+                    issuer: string | null
+                    image_url: string | null
+                    url: string | null
+                    order_index: number
+                    is_visible: boolean
+                    created_at: string
+                    updated_at: string
+                }
+                Insert: {
+                    id?: string
+                    name: string
+                    institution: string
+                    date?: string | null
+                    issuer?: string | null
+                    image_url?: string | null
+                    url?: string | null
+                    order_index?: number
+                    is_visible?: boolean
+                    created_at?: string
+                    updated_at?: string
+                }
+                Update: {
+                    id?: string
+                    name?: string
+                    institution?: string
+                    date?: string | null
+                    issuer?: string | null
+                    image_url?: string | null
+                    url?: string | null
+                    order_index?: number
+                    is_visible?: boolean
+                    created_at?: string
+                    updated_at?: string
+                }
+            }
             contact_messages: {
                 Row: {
                     id: string
