@@ -25,12 +25,13 @@ export async function getProfile(): Promise<Profile | null> {
     return data;
 }
 
-export async function updateProfile(profile: Partial<Profile>): Promise<{ error: Error | null }> {
+export async function updateProfile(profile: Partial<Profile> & { id: string }): Promise<{ error: Error | null }> {
     try {
+        const { id, ...updates } = profile;
         const { error } = await supabase
             .from('profile')
-            .update(profile as any)
-            .eq('id', profile.id!);
+            .update(updates as any)
+            .eq('id', id);
 
         if (error) throw error;
         return { error: null };
