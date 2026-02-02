@@ -30,6 +30,7 @@ export async function updateProfile(profile: Partial<Profile> & { id: string }):
         const { id, ...updates } = profile;
         const { error } = await supabase
             .from('profile')
+            // @ts-expect-error - Supabase generated types issue
             .update(updates as any)
             .eq('id', id);
 
@@ -248,6 +249,7 @@ export async function addCertification(cert: any) {
 export async function updateCertification(id: string, cert: any) {
     const { data, error } = await supabase
         .from('certifications')
+        // @ts-expect-error - Supabase generated types issue
         .update(cert as any)
         .eq('id', id)
         .select()
