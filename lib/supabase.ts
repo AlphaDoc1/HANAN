@@ -15,7 +15,7 @@ const isValidUrl = (url: string) => {
 
 // Use createBrowserClient to ensure sessions are stored in cookies, 
 // syncing perfectly with Next.js Server Components and Middleware.
-export const supabase = createBrowserClient<Database>(
+export const supabase = createBrowserClient(
     isValidUrl(supabaseUrl) ? supabaseUrl : 'https://placeholder.supabase.co',
     supabaseAnonKey
 );
