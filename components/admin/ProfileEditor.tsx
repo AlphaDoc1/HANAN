@@ -194,7 +194,7 @@ export default function ProfileEditor({ profile: initialProfile, onUpdate }: Pro
                                             }
                                         }
 
-                                        setProfile(prev => ({ ...prev, image_url: url }));
+                                        setProfile((prev: any) => ({ ...prev, image_url: url }));
                                     } catch (err: any) {
                                         console.error(err);
                                         setMessage('Failed to upload image: ' + err.message);
